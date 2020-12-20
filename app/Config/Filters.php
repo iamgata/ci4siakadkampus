@@ -1,36 +1,62 @@
-<?php namespace Config;
+<?php
+
+namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
 
 class Filters extends BaseConfig
 {
-	// Makes reading things below nicer,
-	// and simpler to change out script that's used.
-	public $aliases = [
-		'csrf'     => \CodeIgniter\Filters\CSRF::class,
-		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
-		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
-	];
+    // Makes reading things below nicer,
+    // and simpler to change out script that's used.
+    public $aliases = [
+        'csrf'     => \CodeIgniter\Filters\CSRF::class,
+        'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
+        'honeypot' => \CodeIgniter\Filters\Honeypot::class,
+        'adminfilters'  => \App\Filters\AdminFilters::class,
+        'userfilters'   => \App\Filters\UserFilters::class
+    ];
 
-	// Always applied before every request
-	public $globals = [
-		'before' => [
-			//'honeypot'
-			// 'csrf',
-		],
-		'after'  => [
-			'toolbar',
-			//'honeypot'
-		],
-	];
+    // Always applied before every request
+    public $globals = [
+        'before' => [
+            'adminfilters'  => ['except'    => [
+                'auth', 'auth/*',
+                'home', 'home/*',
+                '/'
+            ]],
+            'userfilters'   => ['except'    => [
+                'auth', 'auth/*',
+                'home', 'home/*',
+                '/'
+            ]]
 
-	// Works on all of a particular HTTP method
-	// (GET, POST, etc) as BEFORE filters only
-	//     like: 'post' => ['CSRF', 'throttle'],
-	public $methods = [];
+            //'honeypot'
+            // 'csrf',
+        ],
+        'after'  => [
+            'adminfilters'  => ['except'    => [
+                'admin', 'admin/*',
+                'home', 'home/*',
+                '/'
+            ]],
+            'userfilters'   => ['except'    => [
+                'user', 'user/*',
+                'home', 'home/*',
+                '/'
+            ]],
 
-	// List filter aliases and any before/after uri patterns
-	// that they should run on, like:
-	//    'isLoggedIn' => ['before' => ['account/*', 'profiles/*']],
-	public $filters = [];
+            'toolbar',
+            //'honeypot'
+        ],
+    ];
+
+    // Works on all of a particular HTTP method
+    // (GET, POST, etc) as BEFORE filters only
+    //     like: 'post' => ['CSRF', 'throttle'],
+    public $methods = [];
+
+    // List filter aliases and any before/after uri patterns
+    // that they should run on, like:
+    //    'isLoggedIn' => ['before' => ['account/*', 'profiles/*']],
+    public $filters = [];
 }
