@@ -18,6 +18,13 @@
     <!-- Custom styles for this template-->
     <link href="/assets/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- jquery -->
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+
+
 </head>
 
 <body id="page-top">

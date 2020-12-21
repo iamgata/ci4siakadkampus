@@ -43,6 +43,13 @@
             </a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/building">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Gedung</span>
+            </a>
+        </li>
+
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">

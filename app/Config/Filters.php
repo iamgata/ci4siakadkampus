@@ -37,6 +37,7 @@ class Filters extends BaseConfig
             'adminfilters'  => ['except'    => [
                 'admin', 'admin/*',
                 'home', 'home/*',
+                'faculity', 'faculity/*',
                 '/'
             ]],
             'userfilters'   => ['except'    => [
