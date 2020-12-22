@@ -45,7 +45,7 @@
                 $('#updatesaveFaculityBtn').html('<i class="fa fa-spin fa-spinner"></i>')
             },
             complete: function() {
-                $('#updatesaveFaculityBtn').html('Tambah Fakultas')
+                $('#updatesaveFaculityBtn').html('Update Fakultas')
             },
             success: function(res) {
                 if (res.success) {

@@ -162,7 +162,7 @@ class Faculity extends BaseController
         if ($this->request->isAJAX()) {
             $id = $this->request->getVar('id');
 
-            $this->faculityModels->remove($id);
+            $this->faculityModels->removeData($id);
 
             $msg = [
                 'success'   => 'Data berhasil dihapus'

@@ -4,11 +4,11 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class FaculityModels extends Model
+class BuildingModels extends Model
 {
-    protected $table = 'tb_faculity';
-    protected $primaryKey = 'id_faculity';
-    protected $allowedFields = ['name_faculity', 'acronim_faculity'];
+    protected $table = 'tb_building';
+    protected $primaryKey = 'id_building';
+    protected $allowedFields = ['name_building', 'acronim_building'];
     protected $useTimestamps = true;
 
     public function insertData($dataInsert)
