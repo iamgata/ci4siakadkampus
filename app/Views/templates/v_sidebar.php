@@ -50,6 +50,13 @@
             </a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/room">
+                <i class="fas fa-fw fa-building"></i>
+                <span>Ruangan</span>
+            </a>
+        </li>
+
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
