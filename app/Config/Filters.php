@@ -40,6 +40,7 @@ class Filters extends BaseConfig
                 'faculity', 'faculity/*',
                 'building', 'building/*',
                 'room', 'room/*',
+                'prody', 'prody/*',
                 '/'
             ]],
             'userfilters'   => ['except'    => [

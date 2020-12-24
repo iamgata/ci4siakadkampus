@@ -156,7 +156,7 @@ class Room extends BaseController
             $this->roomModels->updateData($dataUpdate, $id);
 
             $msg = [
-                'success'       => 'Data berhasil ditambahkan'
+                'success'       => 'Data berhasil diupdate'
             ];
         }
 

@@ -57,6 +57,13 @@
             </a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/prody">
+                <i class="fas fa-fw fa-building"></i>
+                <span>Program Studi</span>
+            </a>
+        </li>
+
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
