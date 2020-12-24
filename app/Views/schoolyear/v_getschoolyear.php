@@ -2,8 +2,8 @@
    <thead>
       <tr>
          <th>No</th>
-         <th>Nama Fakultas</th>
-         <th>Akronim Fakultas</th>
+         <th>Tahun Ajaran</th>
+         <th>Semester Ajaran</th>
          <th>#</th>
       </tr>
    </thead>
@@ -11,17 +11,17 @@
    <tbody>
       <?php
       $no = 1;
-      foreach ($faculities as $faculity) : ?>
+      foreach ($schoolyears as $schoolyear) : ?>
          <tr>
             <td><?php echo $no++ ?></td>
-            <td><?php echo $faculity['name_faculity'] ?></td>
-            <td><?php echo $faculity['acronim_faculity'] ?></td>
+            <td><?php echo $schoolyear['name_schoolyear'] ?></td>
+            <td><?php echo $schoolyear['semester_schoolyear'] ?></td>
             <td>
-               <button type="button" class="btn btn-warning btn-sm" onclick="update('<?php echo $faculity['id_faculity'] ?>')">
+               <button type="button" class="btn btn-warning btn-sm" onclick="update('<?php echo $schoolyear['id_schoolyear'] ?>')">
                   <i class="fa fa-pen-alt"></i>
                </button>
 
-               <button type="button" class="btn btn-danger btn-sm" onclick="remove('<?php echo $faculity['id_faculity'] ?>')">
+               <button type="button" class="btn btn-danger btn-sm" onclick="remove('<?php echo $schoolyear['id_schoolyear'] ?>')">
                   <i class="fa fa-trash-alt"></i>
                </button>
             </td>
@@ -30,18 +30,20 @@
    </tbody>
 </table>
 
+
 <script>
    function update(id) {
       $.ajax({
-         url: '/faculity/updateview',
+         url: '/schoolyear/updateview',
          type: 'post',
          dataType: 'json',
          data: {
             id: id
          },
          success: function(res) {
-            $('#viewModalFaculity').html(res.data).show();
-            $('#updateModal').modal('show');
+            console.log(res.data);
+            $('#viewModalSchoolyear').html(res.data).show();
+            $('#updateModalSchoolyear').modal('show');
          },
          error: function(xhr, ajaxOption, throwError) {
             alert(`${xhr.status}
@@ -53,7 +55,7 @@
 
    function remove(id) {
       $.ajax({
-         url: '/faculity/remove',
+         url: '/schoolyear/remove',
          type: 'post',
          dataType: 'json',
          data: {
@@ -68,7 +70,7 @@
                );
             }
 
-            getFaculity();
+            getSchoolyear();
          },
          error: function(xhr, ajaxOption, throwError) {
             alert(`${xhr.status}

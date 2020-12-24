@@ -4,12 +4,11 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class FaculityModels extends Model
+class SchoolyearModels extends Model
 {
-   protected $table = 'tb_faculity';
-   protected $primaryKey = 'id_faculity';
-   protected $allowedFields = ['name_faculity', 'acronim_faculity'];
-   protected $useTimestamps = true;
+   protected $table = 'tb_schoolyear';
+   protected $primaryKey = 'id_schoolyear';
+   protected $allowedFields = ['name_schoolyear', 'semester_schoolyear'];
 
    public function insertData($dataInsert)
    {
