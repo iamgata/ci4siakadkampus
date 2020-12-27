@@ -52,22 +52,29 @@
 
       <li class="nav-item">
          <a class="nav-link collapsed" href="/room">
-            <i class="fas fa-fw fa-building"></i>
+            <i class="fas fa-fw fa-store-alt"></i>
             <span>Ruangan</span>
          </a>
       </li>
 
       <li class="nav-item">
          <a class="nav-link collapsed" href="/prody">
-            <i class="fas fa-fw fa-building"></i>
+            <i class="fas fa-fw fa-user-graduate"></i>
             <span>Program Studi</span>
          </a>
       </li>
 
       <li class="nav-item">
          <a class="nav-link collapsed" href="/schoolyear">
-            <i class="fas fa-fw fa-building"></i>
+            <i class="fas fa-fw fa-calendar-alt"></i>
             <span>Tahun Ajaran</span>
+         </a>
+      </li>
+
+      <li class="nav-item">
+         <a class="nav-link collapsed" href="/course">
+            <i class="fas fa-fw fa-book"></i>
+            <span>Mata Kuliah</span>
          </a>
       </li>
 

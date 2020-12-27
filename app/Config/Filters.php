@@ -42,6 +42,7 @@ class Filters extends BaseConfig
             'room', 'room/*',
             'prody', 'prody/*',
             'schoolyear', 'schoolyear/*',
+            'course', 'course/*',
             '/'
          ]],
          'userfilters'   => ['except'    => [

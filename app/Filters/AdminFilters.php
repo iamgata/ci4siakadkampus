@@ -8,17 +8,17 @@ use CodeIgniter\Filters\FilterInterface;
 
 class AdminFilters implements FilterInterface
 {
-    public function before(RequestInterface $request, $arguments = null)
-    {
-        if (!session()->get('level')) {
-            return redirect()->to('/auth/login');
-        }
-    }
+   public function before(RequestInterface $request, $arguments = null)
+   {
+      if (!session()->get('level')) {
+         return redirect()->to('/auth/login');
+      }
+   }
 
-    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
-    {
-        if (session()->get('level') == 1) {
-            return redirect()->to('/admin');
-        }
-    }
+   public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
+   {
+      if (session()->get('level') == 1) {
+         return redirect()->to('/admin');
+      }
+   }
 }

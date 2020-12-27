@@ -7,208 +7,208 @@ use App\Models\ProdyModels;
 
 class Prody extends BaseController
 {
-    private $prodyModels;
-    private $faculityModels;
+   private $prodyModels;
+   private $faculityModels;
 
-    public function __construct()
-    {
-        $this->prodyModels = new ProdyModels();
-        $this->faculityModels = new FaculityModels();
-    }
+   public function __construct()
+   {
+      $this->prodyModels = new ProdyModels();
+      $this->faculityModels = new FaculityModels();
+   }
 
-    public function index()
-    {
-        $data = [
-            'title'     => 'Halaman Program Studi'
-        ];
+   public function index()
+   {
+      $data = [
+         'title'     => 'Halaman Program Studi'
+      ];
 
-        return view('prody/v_index', $data);
-    }
+      return view('prody/v_index', $data);
+   }
 
-    public function getprody()
-    {
-        if ($this->request->isAJAX()) {
-            $data = [
-                'prodies'   => $this->prodyModels->getAllData()
-            ];
+   public function getprody()
+   {
+      if ($this->request->isAJAX()) {
+         $data = [
+            'prodies'   => $this->prodyModels->getAllData()
+         ];
 
+         $msg = [
+            'data'      => view('prody/v_getprody', $data)
+         ];
+
+         return json_encode($msg);
+      }
+   }
+
+   public function insertview()
+   {
+      $data = [
+         'faculityprodies'   => $this->faculityModels->findAll()
+      ];
+
+      $msg = [
+         'data'      => view('prody/v_insertmodal', $data)
+      ];
+
+      return json_encode($msg);
+   }
+
+   public function insertsave()
+   {
+      $validation = \Config\Services::validation();
+      $validate = $this->validate([
+         'id_faculity'  => [
+            'label'     => 'Inputan fakultas',
+            'rules'     => 'required',
+            'errors'    => [
+               'required'      => '{field} harus diisi'
+            ]
+         ],
+         'name_prody'     => [
+            'label'     => 'Inputan nama',
+            'rules'     => 'required',
+            'errors'    => [
+               'required'      => '{field} harus diisi'
+            ]
+         ],
+         'code_prody'     => [
+            'label'     => 'Inputan kode',
+            'rules'     => 'required',
+            'errors'    => [
+               'required'      => '{field} harus diisi'
+            ]
+         ],
+         'degree_prody'     => [
+            'label'     => 'Inputan tingkat',
+            'rules'     => 'required',
+            'errors'    => [
+               'required'      => '{field} harus diisi'
+            ]
+         ],
+      ]);
+
+      if (!$validate) {
+         if ($this->request->isAJAX()) {
             $msg = [
-                'data'      => view('prody/v_getprody', $data)
+               'errors'    => [
+                  'id_faculity'       => $validation->getError('id_faculity'),
+                  'name_prody'        => $validation->getError('name_prody'),
+                  'code_prody'        => $validation->getError('code_prody'),
+                  'degree_prody'      => $validation->getError('degree_prody'),
+               ]
             ];
+         }
+      } else {
+         $dataInsert = [
+            'id_faculity'       => $this->request->getVar('id_faculity'),
+            'name_prody'        => $this->request->getVar('name_prody'),
+            'code_prody'        => $this->request->getVar('code_prody'),
+            'degree_prody'      => $this->request->getVar('degree_prody'),
+         ];
 
-            return json_encode($msg);
-        }
-    }
+         $this->prodyModels->insertData($dataInsert);
 
-    public function insertview()
-    {
-        $data = [
-            'faculityprodies'   => $this->faculityModels->findAll()
-        ];
+         $msg = [
+            'success'       => 'Data berhasil ditambahkan'
+         ];
+      }
 
-        $msg = [
-            'data'      => view('prody/v_insertmodal', $data)
-        ];
+      return json_encode($msg);
+   }
 
-        return json_encode($msg);
-    }
+   public function remove()
+   {
+      if ($this->request->isAJAX()) {
+         $id = $this->request->getVar('id');
 
-    public function insertsave()
-    {
-        $validation = \Config\Services::validation();
-        $validate = $this->validate([
-            'id_faculity'  => [
-                'label'     => 'Inputan fakultas',
-                'rules'     => 'required',
-                'errors'    => [
-                    'required'      => '{field} harus diisi'
-                ]
-            ],
-            'name_prody'     => [
-                'label'     => 'Inputan nama',
-                'rules'     => 'required',
-                'errors'    => [
-                    'required'      => '{field} harus diisi'
-                ]
-            ],
-            'code_prody'     => [
-                'label'     => 'Inputan kode',
-                'rules'     => 'required',
-                'errors'    => [
-                    'required'      => '{field} harus diisi'
-                ]
-            ],
-            'degree_prody'     => [
-                'label'     => 'Inputan tingkat',
-                'rules'     => 'required',
-                'errors'    => [
-                    'required'      => '{field} harus diisi'
-                ]
-            ],
-        ]);
+         $this->prodyModels->removeData($id);
 
-        if (!$validate) {
-            if ($this->request->isAJAX()) {
-                $msg = [
-                    'errors'    => [
-                        'id_faculity'       => $validation->getError('id_faculity'),
-                        'name_prody'        => $validation->getError('name_prody'),
-                        'code_prody'        => $validation->getError('code_prody'),
-                        'degree_prody'      => $validation->getError('degree_prody'),
-                    ]
-                ];
-            }
-        } else {
-            $dataInsert = [
-                'id_faculity'       => $this->request->getVar('id_faculity'),
-                'name_prody'        => $this->request->getVar('name_prody'),
-                'code_prody'        => $this->request->getVar('code_prody'),
-                'degree_prody'      => $this->request->getVar('degree_prody'),
-            ];
+         $msg = [
+            'success'       => 'Data berhasil dihapus'
+         ];
 
-            $this->prodyModels->insertData($dataInsert);
+         return json_encode($msg);
+      }
+   }
 
+   public function updateview()
+   {
+      if ($this->request->isAJAX()) {
+         $id = $this->request->getVar('id');
+         $data = [
+            'prodyUpdate'       => $this->prodyModels->getDataById($id),
+            'faculityprodiesUpdate'   => $this->faculityModels->findAll()
+         ];
+
+         $msg = [
+            'data'  => view('prody/v_updatemodal', $data)
+         ];
+
+         return json_encode($msg);
+      }
+   }
+
+   public function updatesave()
+   {
+      $validation = \Config\Services::validation();
+      $validate = $this->validate([
+         'id_faculity'  => [
+            'label'     => 'Inputan fakultas',
+            'rules'     => 'required',
+            'errors'    => [
+               'required'      => '{field} harus diisi'
+            ]
+         ],
+         'name_prody'     => [
+            'label'     => 'Inputan nama',
+            'rules'     => 'required',
+            'errors'    => [
+               'required'      => '{field} harus diisi'
+            ]
+         ],
+         'code_prody'     => [
+            'label'     => 'Inputan kode',
+            'rules'     => 'required',
+            'errors'    => [
+               'required'      => '{field} harus diisi'
+            ]
+         ],
+         'degree_prody'     => [
+            'label'     => 'Inputan tingkat',
+            'rules'     => 'required',
+            'errors'    => [
+               'required'      => '{field} harus diisi'
+            ]
+         ],
+      ]);
+
+      if (!$validate) {
+         if ($this->request->isAJAX()) {
             $msg = [
-                'success'       => 'Data berhasil ditambahkan'
+               'errors'    => [
+                  'id_faculity'       => $validation->getError('id_faculity'),
+                  'name_prody'        => $validation->getError('name_prody'),
+                  'code_prody'        => $validation->getError('code_prody'),
+                  'degree_prody'      => $validation->getError('degree_prody'),
+               ]
             ];
-        }
+         }
+      } else {
+         $id = $this->request->getVar('id_prody');
 
-        return json_encode($msg);
-    }
+         $dataUpdate = [
+            'id_faculity'       => $this->request->getVar('id_faculity'),
+            'name_prody'        => $this->request->getVar('name_prody'),
+            'code_prody'        => $this->request->getVar('code_prody'),
+            'degree_prody'      => $this->request->getVar('degree_prody'),
+         ];
 
-    public function remove()
-    {
-        if ($this->request->isAJAX()) {
-            $id = $this->request->getVar('id');
+         $this->prodyModels->updateData($dataUpdate, $id);
 
-            $this->prodyModels->removeData($id);
-
-            $msg = [
-                'success'       => 'Data berhasil dihapus'
-            ];
-
-            return json_encode($msg);
-        }
-    }
-
-    public function updateview()
-    {
-        if ($this->request->isAJAX()) {
-            $id = $this->request->getVar('id');
-            $data = [
-                'prodyUpdate'       => $this->prodyModels->getDataById($id),
-                'faculityprodiesUpdate'   => $this->faculityModels->findAll()
-            ];
-
-            $msg = [
-                'data'  => view('prody/v_updatemodal', $data)
-            ];
-
-            return json_encode($msg);
-        }
-    }
-
-    public function updatesave()
-    {
-        $validation = \Config\Services::validation();
-        $validate = $this->validate([
-            'id_faculity'  => [
-                'label'     => 'Inputan fakultas',
-                'rules'     => 'required',
-                'errors'    => [
-                    'required'      => '{field} harus diisi'
-                ]
-            ],
-            'name_prody'     => [
-                'label'     => 'Inputan nama',
-                'rules'     => 'required',
-                'errors'    => [
-                    'required'      => '{field} harus diisi'
-                ]
-            ],
-            'code_prody'     => [
-                'label'     => 'Inputan kode',
-                'rules'     => 'required',
-                'errors'    => [
-                    'required'      => '{field} harus diisi'
-                ]
-            ],
-            'degree_prody'     => [
-                'label'     => 'Inputan tingkat',
-                'rules'     => 'required',
-                'errors'    => [
-                    'required'      => '{field} harus diisi'
-                ]
-            ],
-        ]);
-
-        if (!$validate) {
-            if ($this->request->isAJAX()) {
-                $msg = [
-                    'errors'    => [
-                        'id_faculity'       => $validation->getError('id_faculity'),
-                        'name_prody'        => $validation->getError('name_prody'),
-                        'code_prody'        => $validation->getError('code_prody'),
-                        'degree_prody'      => $validation->getError('degree_prody'),
-                    ]
-                ];
-            }
-        } else {
-            $id = $this->request->getVar('id_prody');
-
-            $dataUpdate = [
-                'id_faculity'       => $this->request->getVar('id_faculity'),
-                'name_prody'        => $this->request->getVar('name_prody'),
-                'code_prody'        => $this->request->getVar('code_prody'),
-                'degree_prody'      => $this->request->getVar('degree_prody'),
-            ];
-
-            $this->prodyModels->updateData($dataUpdate, $id);
-
-            $msg = [
-                'success'       => 'Data berhasil diupdate'
-            ];
-        }
-        return json_encode($msg);
-    }
+         $msg = [
+            'success'       => 'Data berhasil diupdate'
+         ];
+      }
+      return json_encode($msg);
+   }
 }
