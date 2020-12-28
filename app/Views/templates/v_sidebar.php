@@ -92,6 +92,13 @@
          </a>
       </li>
 
+      <li class="nav-item">
+         <a class="nav-link collapsed" href="/colleger">
+            <i class="fas fa-fw fa-book"></i>
+            <span>Mahasiswa</span>
+         </a>
+      </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

@@ -39,6 +39,7 @@ class Filters extends BaseConfig
             'course', 'course/*',
             'user', 'user/*',
             'lecturer', 'lecturer/*',
+            'colleger', 'colleger/*',
             '/'
          ]],
 

@@ -73,7 +73,7 @@
          dataType: 'json',
          data: $(this).serialize(),
          beforeSend: function() {
-            $('#insertSaveUserBtn').html('<i class="fa fa-spin fa-spinner"></i>')
+            $('#insertSaveLecturerBtn').html('<i class="fa fa-spin fa-spinner"></i>')
          },
          complete: function() {
             $('#insertSaveLecturerBtn').html('Tambah Dosen')
