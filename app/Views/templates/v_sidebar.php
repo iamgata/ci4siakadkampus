@@ -99,6 +99,13 @@
          </a>
       </li>
 
+      <li class="nav-item">
+         <a class="nav-link collapsed" href="/classroom">
+            <i class="fas fa-fw fa-book"></i>
+            <span>Kelas</span>
+         </a>
+      </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

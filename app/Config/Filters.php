@@ -40,6 +40,7 @@ class Filters extends BaseConfig
             'user', 'user/*',
             'lecturer', 'lecturer/*',
             'colleger', 'colleger/*',
+            'classroom', 'classroom/*',
             '/'
          ]],
 

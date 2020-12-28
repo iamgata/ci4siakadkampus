@@ -6,32 +6,33 @@
       <div class="col-sm-12">
          <div class="card">
             <div class="card-header">
-               <button type="button" id="insertColleger" class="btn btn-primary btn-icon-split">
-                  <span class="icon text-white-50" id="insertIconColleger">
+               <button type="button" id="insertClassroom" class="btn btn-primary btn-icon-split">
+                  <span class="icon text-white-50" id="insertIconClassroom">
                      <i class="fas fa-plus"></i>
                   </span>
-                  <span class="text">Tambah Mahasiswa</span>
+                  <span class="text">Tambah Kelas</span>
                </button>
             </div>
-            <div class="card-content py-3 px-4" id="viewDataColleger">
+            <div class="card-content py-3 px-4" id="viewDataClassroom">
 
             </div>
          </div>
       </div>
    </div>
 
-   <div id="viewModalColleger" style="display: none;"></div>
+   <div id="viewModalClassroom" style="display: none;"></div>
 
 </div>
 
+
 <script>
-   function getColleger() {
+   function getClassroom() {
       $.ajax({
-         url: '/colleger/getcolleger',
+         url: '/classroom/getclassroom',
          type: 'post',
          dataType: 'json',
          success: function(res) {
-            $('#viewDataColleger').html(res.data);
+            $('#viewDataClassroom').html(res.data);
          },
          error: function(xhr, ajaxOption, throwError) {
             alert(`${xhr.status}
@@ -42,23 +43,23 @@
    }
 
    $(document).ready(function() {
-      getColleger();
+      getClassroom();
 
-      $('#insertColleger').click(function(e) {
+      $('#insertClassroom').click(function(e) {
          e.preventDefault();
 
          $.ajax({
-            url: '/colleger/insertview',
+            url: '/classroom/insertview',
             type: 'post',
             dataType: 'json',
             beforeSend: function() {
-               $('#insertIconColleger').html(' <i class="fas fa-spin fa-spinner"></i>')
+               $('#insertIconClassroom').html(' <i class="fas fa-spin fa-spinner"></i>')
             },
             success: function(res) {
-               $('#viewModalColleger').html(res.data).show();
-               $('#insertModalColleger').modal('show');
+               $('#viewModalClassroom').html(res.data).show();
+               $('#insertModalClassroom').modal('show');
 
-               $('#insertIconColleger').html(' <i class="fas fa-plus"></i>')
+               $('#insertIconClassroom').html(' <i class="fas fa-plus"></i>')
             },
             error: function(xhr, ajaxOption, throwError) {
                alert(`${xhr.status}

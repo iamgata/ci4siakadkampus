@@ -77,6 +77,12 @@
          type: 'post',
          dataType: 'json',
          data: $(this).serialize(),
+         beforeSend: function() {
+            $('#updateSaveCollegerBtn').html('<i class="fa fa-spin fa-spinner"></i>')
+         },
+         complete: function() {
+            $('#updateSaveCollegerBtn').html('Tambah Mahasiswa')
+         },
          success: function(res) {
             if (res.success) {
                Swal.fire(
