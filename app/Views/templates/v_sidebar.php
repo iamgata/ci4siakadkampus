@@ -78,6 +78,13 @@
          </a>
       </li>
 
+      <li class="nav-item">
+         <a class="nav-link collapsed" href="/user">
+            <i class="fas fa-fw fa-book"></i>
+            <span>User</span>
+         </a>
+      </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

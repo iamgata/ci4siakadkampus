@@ -13,7 +13,6 @@ class Filters extends BaseConfig
       'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
       'honeypot' => \CodeIgniter\Filters\Honeypot::class,
       'adminfilters'  => \App\Filters\AdminFilters::class,
-      'userfilters'   => \App\Filters\UserFilters::class
    ];
 
    // Always applied before every request
@@ -24,11 +23,6 @@ class Filters extends BaseConfig
             'home', 'home/*',
             '/'
          ]],
-         'userfilters'   => ['except'    => [
-            'auth', 'auth/*',
-            'home', 'home/*',
-            '/'
-         ]]
 
          //'honeypot'
          // 'csrf',
@@ -43,11 +37,7 @@ class Filters extends BaseConfig
             'prody', 'prody/*',
             'schoolyear', 'schoolyear/*',
             'course', 'course/*',
-            '/'
-         ]],
-         'userfilters'   => ['except'    => [
             'user', 'user/*',
-            'home', 'home/*',
             '/'
          ]],
 
