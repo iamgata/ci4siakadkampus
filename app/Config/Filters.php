@@ -38,6 +38,7 @@ class Filters extends BaseConfig
             'schoolyear', 'schoolyear/*',
             'course', 'course/*',
             'user', 'user/*',
+            'lecturer', 'lecturer/*',
             '/'
          ]],
 

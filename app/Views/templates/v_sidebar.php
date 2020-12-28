@@ -85,6 +85,13 @@
          </a>
       </li>
 
+      <li class="nav-item">
+         <a class="nav-link collapsed" href="/lecturer">
+            <i class="fas fa-fw fa-book"></i>
+            <span>Dosen</span>
+         </a>
+      </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
