@@ -37,74 +37,89 @@
       </li>
 
       <li class="nav-item">
-         <a class="nav-link collapsed" href="/faculity">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBuilding" aria-expanded="true" aria-controls="collapseBuilding">
             <i class="fas fa-fw fa-wrench"></i>
-            <span>Fakultas</span>
+            <span>Bangunan</span>
          </a>
+         <div id="collapseBuilding" class="collapse" aria-labelledby="headingBuilding" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+               <h6 class="collapse-header">Bangunan Kampus</h6>
+
+               <a class="collapse-item" href="/building">
+                  <i class="fas fa-fw fa-building mr-2"></i>
+                  <span>Gedung</span>
+               </a>
+               <a class="collapse-item" href="/room">
+                  <i class="fas fa-fw fa-store-alt mr-2"></i>
+                  <span>Ruangan</span>
+               </a>
+            </div>
+         </div>
       </li>
 
       <li class="nav-item">
-         <a class="nav-link collapsed" href="/building">
-            <i class="fas fa-fw fa-building"></i>
-            <span>Gedung</span>
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAcademy" aria-expanded="true" aria-controls="collapseAcademy">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Akademi</span>
          </a>
+         <div id="collapseAcademy" class="collapse" aria-labelledby="headingAcademy" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+               <h6 class="collapse-header">Program Akademi:</h6>
+               <a class="collapse-item" href="/faculity">
+                  <i class="fas fa-fw fa-wrench mr-2"></i>
+                  <span>Fakultas</span>
+               </a>
+               <a class="collapse-item" href="/prody">
+                  <i class="fas fa-fw fa-user-graduate mr-2"></i>
+                  <span>Program Studi</span>
+               </a>
+
+               <a class="collapse-item" href="/schoolyear">
+                  <i class="fas fa-fw fa-calendar-alt mr-2"></i>
+                  <span>Tahun Ajaran</span>
+               </a>
+
+               <a class="collapse-item" href="/course">
+                  <i class="fas fa-fw fa-book mr-2"></i>
+                  <span>Mata Kuliah</span>
+               </a>
+
+               <a class="collapse-item" href="/classroom">
+                  <i class="fas fa-fw fa-laptop-house mr-2"></i>
+                  <span>Kelas</span>
+               </a>
+
+            </div>
+         </div>
       </li>
 
-      <li class="nav-item">
-         <a class="nav-link collapsed" href="/room">
-            <i class="fas fa-fw fa-store-alt"></i>
-            <span>Ruangan</span>
-         </a>
-      </li>
 
-      <li class="nav-item">
-         <a class="nav-link collapsed" href="/prody">
-            <i class="fas fa-fw fa-user-graduate"></i>
-            <span>Program Studi</span>
-         </a>
-      </li>
 
-      <li class="nav-item">
-         <a class="nav-link collapsed" href="/schoolyear">
-            <i class="fas fa-fw fa-calendar-alt"></i>
-            <span>Tahun Ajaran</span>
-         </a>
-      </li>
 
-      <li class="nav-item">
-         <a class="nav-link collapsed" href="/course">
-            <i class="fas fa-fw fa-book"></i>
-            <span>Mata Kuliah</span>
-         </a>
-      </li>
+
 
       <li class="nav-item">
          <a class="nav-link collapsed" href="/user">
-            <i class="fas fa-fw fa-book"></i>
+            <i class="fas fa-fw fa-users-cog"></i>
             <span>User</span>
          </a>
       </li>
 
       <li class="nav-item">
          <a class="nav-link collapsed" href="/lecturer">
-            <i class="fas fa-fw fa-book"></i>
+            <i class="fas fa-fw fa-chalkboard-teacher"></i>
             <span>Dosen</span>
          </a>
       </li>
 
       <li class="nav-item">
          <a class="nav-link collapsed" href="/colleger">
-            <i class="fas fa-fw fa-book"></i>
+            <i class="fas fa-fw fa-people-arrows"></i>
             <span>Mahasiswa</span>
          </a>
       </li>
 
-      <li class="nav-item">
-         <a class="nav-link collapsed" href="/classroom">
-            <i class="fas fa-fw fa-book"></i>
-            <span>Kelas</span>
-         </a>
-      </li>
+
 
 
       <!-- Divider -->
