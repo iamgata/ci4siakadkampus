@@ -28,7 +28,7 @@
             <td class="text-center"><?php echo $prody['degree_prody'] ?></td>
             <td class="text-center"><?php echo $jml ?></td>
             <td>
-               <a href="/course/detailcourse/<?php echo $prody['id_prody'] ?>" class="btn btn-primary btn-sm" id="">
+               <a href="/course/detailcourse/<?php echo $prody['id_prody'] ?>" class="btn btn-info btn-sm" id="">
                   <i class="fa fa-plus"></i> Detail Matkul
                </a>
             </td>

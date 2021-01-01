@@ -23,6 +23,10 @@
             <td><?php echo $classroom['year_classroom'] ?></td>
             <td></td>
             <td>
+               <a href="/classroom/detailclassroom/<?php echo $classroom['id_classroom'] ?>" class="btn btn-info btn-sm">
+                  <i class="fa fa-file-alt"></i>
+               </a>
+
                <button type="button" class="btn btn-warning btn-sm" onclick="update('<?php echo $classroom['id_classroom'] ?>')">
                   <i class="fa fa-pen-alt"></i>
                </button>

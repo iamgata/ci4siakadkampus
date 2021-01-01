@@ -212,6 +212,33 @@ class Classroom extends BaseController
       return json_encode($msg);
    }
 
+   public function detailclassroom($id)
+   {
+      $data = [
+         'title'           => 'Halaman Detail',
+         'classroom'       => $this->classroomModels->getDataById($id),
+         'collegers'       => $this->classroomModels->getCollegerById($id),
+         'countCollegers'  => $this->classroomModels->getCountCollegerById($id)
+      ];
+
+      return view('classroom/v_detailclassroom', $data);
+   }
+
+   public function insertdetailview()
+   {
+      $id = $this->request->getVar('id');
+      $data = [
+         'collegernoclasses'     => $this->classroomModels->getCollegerNoClass(),
+         'classroom'             => $this->classroomModels->getDataById($id),
+      ];
+
+      $msg = [
+         'data'      => view('classroom/v_insertdetailmodal', $data)
+      ];
+
+      return json_encode($msg);
+   }
+
    public function remove()
    {
       if ($this->request->isAJAX()) {
@@ -221,6 +248,47 @@ class Classroom extends BaseController
 
          $msg = [
             'success'      => 'Kelas berhasil dihapus'
+         ];
+
+         return json_encode($msg);
+      }
+   }
+
+   public function addcollegerinclass()
+   {
+      if ($this->request->isAJAX()) {
+         $id_colleger = $this->request->getVar('id_colleger');
+         $id_classroom = $this->request->getVar('id_classroom');
+
+         $dataUpdate = [
+            'id_colleger'     => $id_colleger,
+            'id_classroom'    => $id_classroom
+         ];
+
+         $this->classroomModels->addCollegerInClass($dataUpdate);
+
+         $msg = [
+            'success'      => 'Mahasiswa berhasil ditambahkan ke kelas'
+         ];
+
+         return json_encode($msg);
+      }
+   }
+
+   public function removecollegerinclass()
+   {
+      if ($this->request->isAJAX()) {
+         $id_colleger = $this->request->getVar('id_colleger');
+
+         $dataRemove = [
+            'id_colleger'     => $id_colleger,
+            'id_classroom'    => 0
+         ];
+
+         $this->classroomModels->removeCollegerInClass($dataRemove);
+
+         $msg = [
+            'success'      => 'Mahasiswa berhasil dihapus dari kelas'
          ];
 
          return json_encode($msg);
