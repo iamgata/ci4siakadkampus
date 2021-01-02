@@ -21,7 +21,7 @@
             <div class="form-group">
                <label for="idPrody">Pilih Prodi</label>
                <select class="form-control" id="idPrody" name="id_prody">
-                  <option value="<?php echo $classroom['name_prody'] ?>"><?php echo $classroom['name_prody'] ?></option>
+                  <option value="<?php echo $classroom['id_prody'] ?>"><?php echo $classroom['name_prody'] ?></option>
                   <?php foreach ($prodies as $prody) : ?>
                      <option value="<?php echo $prody['id_prody'] ?>"><?php echo $prody['degree_prody'] ?> - <?php echo $prody['name_prody'] ?> (<?php echo $prody['code_prody'] ?>)</option>
                   <?php endforeach ?>
@@ -32,7 +32,7 @@
             <div class="form-group">
                <label for="idLecturer">Pilih Dosen</label>
                <select class="form-control" id="idLecturer" name="id_lecturer">
-                  <option value="<?php echo $classroom['name_lecturer'] ?>"><?php echo $classroom['name_lecturer'] ?></option>
+                  <option value="<?php echo $classroom['id_lecturer'] ?>"><?php echo $classroom['name_lecturer'] ?></option>
                   <?php foreach ($lecturers as $lecturer) : ?>
                      <option value="<?php echo $lecturer['id_lecturer'] ?>"><?php echo $lecturer['name_lecturer'] ?></option>
                   <?php endforeach ?>

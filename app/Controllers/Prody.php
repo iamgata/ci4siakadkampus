@@ -3,17 +3,20 @@
 namespace App\Controllers;
 
 use App\Models\FaculityModels;
+use App\Models\LecturerModels;
 use App\Models\ProdyModels;
 
 class Prody extends BaseController
 {
    private $prodyModels;
    private $faculityModels;
+   private $lecturerModels;
 
    public function __construct()
    {
       $this->prodyModels = new ProdyModels();
       $this->faculityModels = new FaculityModels();
+      $this->lecturerModels = new LecturerModels();
    }
 
    public function index()
@@ -43,7 +46,8 @@ class Prody extends BaseController
    public function insertview()
    {
       $data = [
-         'faculityprodies'   => $this->faculityModels->findAll()
+         'faculityprodies' => $this->faculityModels->findAll(),
+         'lecturers'       => $this->lecturerModels->findAll()
       ];
 
       $msg = [
@@ -85,6 +89,13 @@ class Prody extends BaseController
                'required'      => '{field} harus diisi'
             ]
          ],
+         'head_prody'     => [
+            'label'     => 'Inputan ketua prodi',
+            'rules'     => 'required',
+            'errors'    => [
+               'required'      => '{field} harus diisi'
+            ]
+         ],
       ]);
 
       if (!$validate) {
@@ -95,6 +106,7 @@ class Prody extends BaseController
                   'name_prody'        => $validation->getError('name_prody'),
                   'code_prody'        => $validation->getError('code_prody'),
                   'degree_prody'      => $validation->getError('degree_prody'),
+                  'head_prody'        => $validation->getError('head_prody'),
                ]
             ];
          }
@@ -104,6 +116,7 @@ class Prody extends BaseController
             'name_prody'        => $this->request->getVar('name_prody'),
             'code_prody'        => $this->request->getVar('code_prody'),
             'degree_prody'      => $this->request->getVar('degree_prody'),
+            'head_prody'        => $this->request->getVar('head_prody'),
          ];
 
          $this->prodyModels->insertData($dataInsert);
@@ -136,8 +149,9 @@ class Prody extends BaseController
       if ($this->request->isAJAX()) {
          $id = $this->request->getVar('id');
          $data = [
-            'prodyUpdate'       => $this->prodyModels->getDataById($id),
-            'faculityprodiesUpdate'   => $this->faculityModels->findAll()
+            'prodyUpdate'              => $this->prodyModels->getDataById($id),
+            'faculityprodiesUpdate'    => $this->faculityModels->findAll(),
+            'lecturers'                => $this->lecturerModels->findAll()
          ];
 
          $msg = [
@@ -180,6 +194,13 @@ class Prody extends BaseController
                'required'      => '{field} harus diisi'
             ]
          ],
+         'head_prody'     => [
+            'label'     => 'Inputan ketua prodi',
+            'rules'     => 'required',
+            'errors'    => [
+               'required'      => '{field} harus diisi'
+            ]
+         ],
       ]);
 
       if (!$validate) {
@@ -190,6 +211,7 @@ class Prody extends BaseController
                   'name_prody'        => $validation->getError('name_prody'),
                   'code_prody'        => $validation->getError('code_prody'),
                   'degree_prody'      => $validation->getError('degree_prody'),
+                  'head_prody'        => $validation->getError('head_prody'),
                ]
             ];
          }
@@ -201,6 +223,7 @@ class Prody extends BaseController
             'name_prody'        => $this->request->getVar('name_prody'),
             'code_prody'        => $this->request->getVar('code_prody'),
             'degree_prody'      => $this->request->getVar('degree_prody'),
+            'head_prody'        => $this->request->getVar('head_prody'),
          ];
 
          $this->prodyModels->updateData($dataUpdate, $id);

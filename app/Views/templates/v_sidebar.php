@@ -103,7 +103,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                <h6 class="collapse-header">Setting</h6>
                <a class="collapse-item" href="/schoolyear/setyear">
-                  <i class="fas fa-fw fa-calendar mr-2"></i>
+                  <i class="fas fa-fw fa-calendar-alt mr-2"></i>
                   <span>Set. Tahun Ajaran</span>
                </a>
             </div>

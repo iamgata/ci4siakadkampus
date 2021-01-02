@@ -46,6 +46,17 @@
                <div class="invalid-feedback" id="degreeProdyFeedback"></div>
             </div>
 
+            <div class="form-group">
+               <label for="headPrody">Ketua Prodi</label>
+               <select class="form-control" id="headPrody" name="head_prody">
+                  <option value=""> - Pilih Ketua Prodi -</option>
+                  <?php foreach ($lecturers as $lecturer) : ?>
+                     <option value="<?php echo $lecturer['name_lecturer'] ?>"><?php echo $lecturer['name_lecturer'] ?></option>
+                  <?php endforeach ?>
+               </select>
+               <div class="invalid-feedback" id="headProdyFeedback"></div>
+            </div>
+
          </div>
 
          <div class="modal-footer">
@@ -98,6 +109,10 @@
                if (res.errors.degree_prody) {
                   $('#degreePrody').addClass('is-invalid');
                   $('#degreeProdyFeedback').html(res.errors.degree_prody)
+               }
+               if (res.errors.head_prody) {
+                  $('#headPrody').addClass('is-invalid');
+                  $('#headProdyFeedback').html(res.errors.head_prody)
                }
             }
          },
