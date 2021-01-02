@@ -172,4 +172,47 @@ class Schoolyear extends BaseController
 
       return json_encode($msg);
    }
+
+   public function setyear()
+   {
+      $data = [
+         'title'     => 'Setting Tahun Ajaran'
+      ];
+
+      return view('schoolyear/v_setyear', $data);
+   }
+
+   public function getsetschoolyear()
+   {
+      $data = [
+         'schoolyears'     => $this->schoolyearModels->findAll()
+      ];
+
+      $msg = [
+         'data'      => view('schoolyear/v_getsetschoolyear', $data)
+      ];
+
+      return json_encode($msg);
+   }
+
+   public function setactiveyear()
+   {
+      if ($this->request->isAJAX()) {
+         $id = $this->request->getVar('id');
+
+         $this->schoolyearModels->removeActiveYear();
+
+         $dataUpdate = [
+            'status_schoolyear'  => 1
+         ];
+
+         $this->schoolyearModels->updateData($dataUpdate, $id);
+
+         $msg = [
+            'success'      => 'Tahun Ajaran telah diaktifkan'
+         ];
+
+         return json_encode($msg);
+      }
+   }
 }

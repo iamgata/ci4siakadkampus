@@ -59,7 +59,7 @@
 
       <li class="nav-item">
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAcademy" aria-expanded="true" aria-controls="collapseAcademy">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-chalkboard"></i>
             <span>Akademi</span>
          </a>
          <div id="collapseAcademy" class="collapse" aria-labelledby="headingAcademy" data-parent="#accordionSidebar">
@@ -94,6 +94,21 @@
       </li>
 
 
+      <li class="nav-item">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSetting" aria-expanded="true" aria-controls="collapseSetting">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Setting</span>
+         </a>
+         <div id="collapseSetting" class="collapse" aria-labelledby="headingSetting" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+               <h6 class="collapse-header">Setting</h6>
+               <a class="collapse-item" href="/schoolyear/setyear">
+                  <i class="fas fa-fw fa-calendar mr-2"></i>
+                  <span>Set. Tahun Ajaran</span>
+               </a>
+            </div>
+         </div>
+      </li>
 
 
 
