@@ -9,6 +9,7 @@
       <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
    </a>
 
+
    <!-- Divider -->
    <hr class="sidebar-divider my-0">
 
@@ -88,6 +89,12 @@
                   <i class="fas fa-fw fa-laptop-house mr-2"></i>
                   <span>Kelas</span>
                </a>
+
+               <a class="collapse-item" href="/schedule">
+                  <i class="fas fa-fw fa-laptop-house mr-2"></i>
+                  <span>Jadwal Kuliah</span>
+               </a>
+
 
             </div>
          </div>

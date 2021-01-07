@@ -10,6 +10,12 @@ class SchoolyearModels extends Model
    protected $primaryKey = 'id_schoolyear';
    protected $allowedFields = ['name_schoolyear', 'semester_schoolyear'];
 
+   public function getSchoolyearActive()
+   {
+      return $this->db->table($this->table)->where('status_schoolyear', 1)
+         ->get()->getRowArray();
+   }
+
    public function removeActiveYear()
    {
       $this->db->table($this->table)->update([
